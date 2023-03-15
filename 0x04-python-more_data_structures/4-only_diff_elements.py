@@ -7,4 +7,3 @@ def only_diff_elements(set_1, set_2):
             if a[i] != b[i]
                 diff.add(element)
     return diff
-
