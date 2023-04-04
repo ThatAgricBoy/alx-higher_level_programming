@@ -8,4 +8,4 @@ def copy_list(l):
     elements of the list from the beginning to the end
     This effectively creates a new list with the same elements as the original list
     """
-    return l[:]
+    return l.copy()
