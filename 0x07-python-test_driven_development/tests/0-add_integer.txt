@@ -1,44 +1,58 @@
-======================================
-How to use the 0-add_integer function
-======================================
+===========================
+How to Use 0-add_integer.py
+===========================
 
-This module defines an integer addition function ```add_integer(a, b=98)```
+This module defines an integer addition function ``add_integer(a, b=98)``.
 
-Usage:
+Usage
 =====
 
-```add_integer(...)``` returns the addition of its two arguments. For 
-numbers, thevalue it returns is equivalent to using the ```+``` operator
+``add_integer(...)``` returns the addition of the two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
 
 ::
 
-	>>> add_integer = __import__('0-add_integer').add_integer
-	>>> add_integer(1, 10)
-	11
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
 
 ::
 
-	>>> add_integer(1, -1)
-	0
+    >>> add_integer(2, -3)
+    -1
+
 The function also works with floating-point values.
-::
-
-	>>> add_integer(1.0, 3.0)
-	4
-
-Note float are converted to integer before additon
 
 ::
-Floating point numbers and integers can also be added
 
-	>>> add_integer(2.3, -5)
-	-2.7
+    >>> add_integer(2.0, 3.0)
+    5
+
+Note that floats are casted to integers before addition.
+
+::
+
+    >>> add_integer(2.9, 0.2)
+    2
+
+::
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+Floating and non-floating point values can be combined.
+
+::
+
+    >>> add_integer(2.3, -3)
+    -1
+
 The second argument is optional - by default, it is 98.
 
 ::
 
-    >>> add_integer(7)
-    105
+    >>> add_integer(2)
+    100
 
 Non-Numbers
 ===========
@@ -48,13 +62,13 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 
 ::
 
-    >>> add_integer("alx", 100)
+    >>> add_integer("hello", 3)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
 ::
 
-    >>> add_integer(100, "alx")
+    >>> add_integer(2, "hello")
     Traceback (most recent call last):
     TypeError: b must be an integer
 
@@ -66,7 +80,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 
 ::
 
-    >>> add_integer(2.5, None)
+    >>> add_integer(2.3, None)
     Traceback (most recent call last):
     TypeError: b must be an integer
 
@@ -75,7 +89,7 @@ printed for the first argument.
 
 ::
 
-    >>> add_integer("alx", "hard_things")
+    >>> add_integer("hello", "there")
     Traceback (most recent call last):
     TypeError: a must be an integer
 
@@ -86,11 +100,11 @@ The function will fail if infinity is provided.
     >>> add_integer(float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
-
+     
 
 ::
 
-    >>> add_integer(5, float('inf'))
+    >>> add_integer(2, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
@@ -104,6 +118,6 @@ And again with NaN numbers.
 
 ::
 
-    >>> add_integer(5, float('nan'))
+    >>> add_integer(2, float('nan'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer

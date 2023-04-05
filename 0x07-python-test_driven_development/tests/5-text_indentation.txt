@@ -1,60 +1,32 @@
-===========================================
-How to Use the module 5-text_indentation.py
-===========================================
+This is the ``5-text_indentation`` module
+=========================================
 
-This module defines a text-indentation function ```text_indentation(text)```.
-
-=====
-Usage
-=====
-
-Text is printed with two new lines after each of the characters ``.``, ``?``,
-and ``:``.
-
-====================================
-importing the module:
-
-    >>> text_indentation = __import__('5-text_indentation').text_indentation
-
-=====================================
-
-def text_indentation(text):
-    """
-    Prints a text with 2 new lines after each of these characters: ., ? and :
-
-    Args:
-        text (str): The text to be printed.
-
-    Raises:
-        TypeError: If text is not a string.
-
-    Returns:
-        None
-
-    Examples:
-        >>> text_indentation("Hello. How are you? I'm fine, thanks.")
-        Hello
-        How are you
-        I'm fine, thanks
-        >>> text_indentation("This is a test.   ")
-        This is a test
-        >>> text_indentation(":?:?:")
-        
-        
-        >>> text_indentation("")
-        
-        
-        >>> text_indentation(123)
-        Traceback (most recent call last):
-        ...
-        TypeError: text must be a string
-    """
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
-    
-    for char in ".?:":
-        text = text.replace(char, char + "\n\n")
-    
-    lines = text.split("\n")
-    for line in lines:
-        print(line.strip())
+Using ``text_indentation`` function
+-----------------------------------
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("")
+>>> text_indentation("lorem.  ipsum  ")
+lorem.
+<BLANKLINE>
+ipsum
+>>> text_indentation(2)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+>>> text_indentation(" lorem")
+lorem
+>>> text_indentation("lorem ipsum. lorem.  ")
+lorem ipsum.
+<BLANKLINE>
+lorem.
+<BLANKLINE>
+>>> text_indentation(".")
+.
+<BLANKLINE>
+>>> text_indentation(".?:")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
