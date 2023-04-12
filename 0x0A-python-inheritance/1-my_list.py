@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Contains `MyList` class"""
-
+"""
+    Contains MyList class
+"""
 
 class MyList(list):
     """Class that extends the list base class"""
