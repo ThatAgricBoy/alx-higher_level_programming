@@ -2,8 +2,8 @@
 
 from models.base import Base
 
-class Rectangle(Base):
 
+class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
@@ -50,7 +50,7 @@ class Rectangle(Base):
 
     @property
     def x(self, value):
-        self.__x =value
+        self.__x = value
 
     @x.setter
     def x(self, value):
@@ -124,7 +124,6 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
-
 
     def to_dictionary(self):
         """
