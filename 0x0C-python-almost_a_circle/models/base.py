@@ -10,13 +10,13 @@ import turtle
 class Base:
     __nb_objects = 0
 
-    def __init__(self, id=None);
+    def __init__(self, id=None):
+
         if id is not None:
             self.id = id
         else:
             self.__class__.nb_objects += 1
             seld.id = self.__class__.__nb_objects
-
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -55,8 +55,9 @@ class Base:
             sample = cls(1)
         sample.update(**dictionary)
         return sample
+
     @classmethod
-    def  load_from_file(cls):
+    def load_from_file(cls):
         """ returns list of instances"""
         filename = cls.__name__ + ".json"
         if os.path.exists(filename):
@@ -79,9 +80,11 @@ class Base:
                     for obj in list_objs:
                         if cls.__name__ == "Rectangle":
                             writer.writerow(
-                                    [obj.id, obj.width, obj.height, obj.x, obj.y])
+                                    [obj.id, obj.width, obj.height,
+                                        obj.x, obj.y])
                         if cls.__name__ == "square":
-                            writer.writerow([obj.id, obj.width, obj.x, obj.y])
+                            writer.writerow([obj.id, obj.width,
+                                            obj.x, obj.y])
 
     @classmethod
     def load_from_file_csv(cls):
