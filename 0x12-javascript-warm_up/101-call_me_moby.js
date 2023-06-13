@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-const executeXTimes = (x, theFunction) => {
-  for (let i = 0; i < x; i++) {
-    theFunction();
-  }
+const callMeMoby = (x, theFunction) => {
+	for (let i = 0; i < x; i++) {
+		theFunction();
+	}
 };
-exports.executeXTimes = executeXTimes;
+exports.callMeMoby = callMeMoby;
