@@ -1,5 +1,3 @@
 #!/usr/bin/node
-
-class Rectangle {
-}
-exports.Rectangle = Rectangle;
+class Rectangle { }
+module.exports = Rectangle;
