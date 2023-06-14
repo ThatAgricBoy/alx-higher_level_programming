@@ -1,6 +1,7 @@
 #!/usr/bin/node
 
-let logTracks = function (item) {
-	console.log (`${logTracks}: ${item}`);
-	logTracks++;
+let logTracks = 0;
+exports.logMe = function (item) {
+  console.log(`${logTracks}: ${item}`);
+  logTracks++;
 };
