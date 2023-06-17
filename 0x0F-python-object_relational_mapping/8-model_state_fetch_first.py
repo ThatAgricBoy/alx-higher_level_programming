@@ -10,7 +10,6 @@ if __name__ == '__main__':
     """ Get MySQL username, password, and
     database name from command
     line arguments"""
-    
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     mysql_db_name = sys.argv[3]
