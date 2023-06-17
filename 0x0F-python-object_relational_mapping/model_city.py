@@ -1,18 +1,23 @@
 #!/usr/bin/python3
 """
-Script that uses the declarative base from sqlalchemy
+This script defines a City class
+to work with MySQLAlchemy ORM.
 """
+from model_state import Base, State
+from sqlalchemy import Column, Integer, String, ForeignKey
 
-from sqlalchemy import Column, Interger, String
-from sqlalchemy.ext.declarative import declarative_base
-from sys import argv
 
-engine = create_engine('mysql+mysqldb://argv[1]:argv[2]@localhost:3306/argv[3])
+class City(Base):
+    """City class
+    Attributes:
+        __tablename__ (str): The table name of the class
+        id (int): The id of the class
+        name (str): The name of the class
+        state_id (int): The state the city belongs to
+    """
 
-Base = declarative_base()
+    __tablename__ = 'cities'
 
-class State(Base):
-   __tablename__ = 'states'
-
-   id = Column(Interger, primary_key=True, autoincrement=True, nullable=False)
-   name = Column(String,(128), nullable=False)
+    id = Column(Integer, primary_key=True)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    name = Column(String(128), nullable=False)
