@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-import urllib.request
 """
 script that fetches https://alx-intranet.hbtn.io/status
 """
+import urllib.request
+
+
 if __name__ == "__main__":
     my_url = "https://alx-intranet.hbtn.io/status"
     with urllib.request.urlopen(my_url) as response:
