@@ -14,7 +14,7 @@ request.get(url, { json: true }, (error, response, data) => {
   const charactersUrls = data.characters;
 
   // Function to fetch character data and print their names
-  function fetchCharacterName(characterUrl) {
+  function fetchCharacterName (characterUrl) {
     request.get(characterUrl, { json: true }, (error, response, characterData) => {
       if (error) {
         console.error(error);
