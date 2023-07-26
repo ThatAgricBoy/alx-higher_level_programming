@@ -16,7 +16,7 @@ request.get(url, { json: true }, (error, response, data) => {
   const characterUrls = [...characters]; // Copy the array to preserve the order
 
   // Function to fetch character data and push the name in the correct order
-  function fetchCharacterData() {
+  function fetchCharacterData () {
     const characterUrl = characterUrls.shift();
     if (!characterUrl) {
       // All characters processed, print the names
