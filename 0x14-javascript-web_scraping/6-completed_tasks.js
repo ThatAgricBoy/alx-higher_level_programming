@@ -5,24 +5,33 @@ const url = process.argv[2];
 
 request.get(url, { json: true }, (error, response, body) => {
   if (error) {
-    console.log(error);
+    console.error(error);
     return;
   }
 
   const tasksCompleted = {};
 
-  // Loop through each to-do item in the response array
+  if (!Array.isArray(body)) {
+    console.error('Invalid response format. Expected an array.');
+    return;
+  }
+
   body.forEach((todo) => {
-    const userId = todo.userId;
+    // Ensure that each todo item has the required properties (userId and completed)
+    if (typeof todo.userId === 'number' && typeof todo.completed === 'boolean') {
+      const userId = todo.userId.toString(); // Convert to string for consistency
 
-    // Initialize the tasksCompleted count for the current user
-    if (!tasksCompleted[userId]) {
-      tasksCompleted[userId] = 0;
-    }
+      // Initialize the tasksCompleted count for the current user
+      if (!tasksCompleted[userId]) {
+        tasksCompleted[userId] = 0;
+      }
 
-    // Increment the completed task count for the current user
-    if (todo.completed) {
-      tasksCompleted[userId]++;
+      // Increment the completed task count for the current user
+      if (todo.completed) {
+        tasksCompleted[userId]++;
+      }
+    } else {
+      console.error('Invalid todo item format. Skipping:', todo);
     }
   });
 
